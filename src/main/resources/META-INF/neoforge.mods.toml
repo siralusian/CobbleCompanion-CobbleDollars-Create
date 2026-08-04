@@ -1,0 +1,79 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+
+[[dependencies.cobblecompanion_cobbledollars_create]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.1.233,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.cobblecompanion_cobbledollars_create]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21.1,1.22)"
+    ordering="NONE"
+    side="BOTH"
+
+# CobbleCompanion: Basis wird zur Laufzeit als eigenes, separat installiertes Mod erwartet.
+[[dependencies.cobblecompanion_cobbledollars_create]]
+    modId="cobblecompanion"
+    type="required"
+    versionRange="[0.1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+# CobbleCompanion: CobbleDollars ebenfalls erforderlich (Wallet/Kontostand-Grundlage).
+[[dependencies.cobblecompanion_cobbledollars_create]]
+    modId="cobblecompanion_cobbledollars"
+    type="required"
+    versionRange="[0.1.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+# Ohne Create gibt es keinen Lagerticker/Schlauen Beobachter - required.
+[[dependencies.cobblecompanion_cobbledollars_create]]
+    modId="create"
+    type="required"
+    versionRange="[6.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+# Ohne die eigentliche CobbleDollars-Mod kann diese Erweiterung nichts bezahlen - required.
+[[dependencies.cobblecompanion_cobbledollars_create]]
+    modId="cobbledollars"
+    type="required"
+    versionRange="[2.0.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+# Mobiler Lagerticker bleibt optional (eigenständiges Fremd-Mod-Addon zu Create).
+[[dependencies.cobblecompanion_cobbledollars_create]]
+    modId="create_mobile_packages"
+    type="optional"
+    versionRange="[0.7.0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[mixins]]
+    config="cobblecompanion_cobbledollars_create.mixins.json"
+
+[[mixins]]
+    config="cobblecompanion_cobbledollars_create_client.mixins.json"
+
+[[mixins]]
+    config="cobblecompanion_cobbledollars_create_buyshop.mixins.json"
+
+# Nur relevant, wenn create_mobile_packages installiert ist (optionale Abhaengigkeit dieses Mods) -
+# SendPackageMixin importiert dessen Typen direkt.
+[[mixins]]
+    config="cobblecompanion_cobbledollars_create_mobilepackages.mixins.json"
+    requiredMods=["create_mobile_packages"]
+
+[[mods]]
+    modId="cobblecompanion_cobbledollars_create"
+    version="0.1.0"
+    displayName="CobbleCompanion: CobbleDollars/Create"
+    displayTest="IGNORE_ALL_VERSION"
+    description="Verbindet Create (Lagerticker, Schlauer Beobachter) mit CobbleDollars fuer CobbleCompanion."
