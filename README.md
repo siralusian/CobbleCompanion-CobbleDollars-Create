@@ -14,8 +14,10 @@ multiplayer servers with an economy.
 ### What it does
 
 - Live price display on Create stock tickers, synced with your CobbleDollars balance.
-- "Content Observer": automatic sale counting for items funneled into a linked selling system via
-  a Create chute.
+- "Content Observer": tracks multiple items per block, can pull prices directly from a linked
+  stock network, and can link several observers into a group where a "subtractor" reduces or
+  cancels the payout of a "counter" — see the [wiki](https://github.com/siralusian/CobbleCompanion-CobbleDollars-Create/wiki/English#configuring-the-content-observer)
+  for the full walkthrough.
 - Buy-shop integration for trading posts (CobbleMerchant) linked through a stock ticker network.
 - Compatible with mobile Create packages (create_mobile_packages), if installed.
 
@@ -29,8 +31,14 @@ whoever sets up the server's shop system, not something a regular player configu
 - **Edit a stock ticker's prices**: **Ctrl+right-click the stock ticker block** (requires real OP)
   to open the price editor instead of Create's normal order menu.
 - **Configure a Content Observer ("Schlauer Beobachter")**: **Ctrl+right-click the block**
-  (requires real OP) to open its settings. A normal right-click is blocked for non-OPs once it's
-  configured; before that, Create's own filter-slot interaction works normally.
+  (requires real OP, and requires that you're not holding a Content Observer item — see the next
+  point) to open its settings. A normal right-click is blocked for non-OPs once it's configured;
+  before that, Create's own filter-slot interaction works normally.
+- **Link observers into a group**: hold a Content Observer block item and **Ctrl+right-click an
+  already-placed observer** to tune the held item to that observer's group (creating one if it
+  doesn't have one yet); placing the tuned item then joins the new block to the group. Full details
+  (counter/subtractor roles, delayed payout, the two-list editor) are in the
+  [wiki](https://github.com/siralusian/CobbleCompanion-CobbleDollars-Create/wiki/English#groups-linking-counters-and-subtractors).
 - **Link a CobbleMerchant to a stock ticker or payout chest** (AdminOp):
   1. Ctrl+right-click the merchant to start link mode.
   2. Ctrl+right-click a stock ticker (price source) or a chest (payout target) to link it.
@@ -84,8 +92,11 @@ mit Wirtschaft ausgerichtet ist.
 ### Was es macht
 
 - Live-Preisanzeige an Create-Lagertickern, synchronisiert mit deinem CobbleDollars-Kontostand.
-- "Schlauer Beobachter" (Content Observer): automatische Verkaufszählung für Items, die per
-  Create-Schacht in ein verlinktes Verkaufssystem wandern.
+- "Schlauer Beobachter" (Content Observer): verfolgt mehrere Items pro Block, kann Preise direkt
+  aus einem verlinkten Lagernetzwerk übernehmen, und mehrere Beobachter lassen sich zu einer Gruppe
+  verknüpfen, in der ein "Abzieher" die Auszahlung eines "Zählers" verringert oder storniert — die
+  vollständige Anleitung steht im
+  [Wiki](https://github.com/siralusian/CobbleCompanion-CobbleDollars-Create/wiki/Deutsch#schlauer-beobachter-konfigurieren).
 - Kaufladen-Integration (Buyshop) für per Lagerticker-Netzwerk verbundene Handelsposten
   (CobbleMerchant).
 - Kompatibel mit mobilen Create-Paketen (create_mobile_packages), sofern installiert.
@@ -99,9 +110,16 @@ für die Person gebaut, die das Server-Shop-System einrichtet, nicht für die no
 
 - **Preise eines Lagertickers bearbeiten**: **Strg+Rechtsklick auf den Lagerticker-Block**
   (erfordert echten OP) öffnet den Preis-Editor statt Creates normalem Bestell-Menü.
-- **Schlauen Beobachter konfigurieren**: **Strg+Rechtsklick auf den Block** (erfordert echten OP)
-  öffnet die Einstellungen. Ein normaler Rechtsklick ist für Nicht-OPs blockiert, sobald er
-  konfiguriert ist; davor funktioniert Creates eigene Filter-Slot-Interaktion normal.
+- **Schlauen Beobachter konfigurieren**: **Strg+Rechtsklick auf den Block** (erfordert echten OP,
+  und dass du dabei KEIN Schlauer-Beobachter-Item in der Hand hältst — siehe nächster Punkt) öffnet
+  die Einstellungen. Ein normaler Rechtsklick ist für Nicht-OPs blockiert, sobald er konfiguriert
+  ist; davor funktioniert Creates eigene Filter-Slot-Interaktion normal.
+- **Beobachter zu einer Gruppe verknüpfen**: einen Schlauer-Beobachter-Block in der Hand halten und
+  **Strg+Rechtsklick auf einen bereits platzierten Beobachter** stimmt das gehaltene Item auf
+  dessen Gruppe ab (legt automatisch eine neue an, falls er noch keine hat); das Platzieren des
+  abgestimmten Items lässt den neuen Block der Gruppe beitreten. Alle Details (Zähler-/Abzieher-
+  Rollen, verzögerte Auszahlung, der Zwei-Listen-Editor) stehen im
+  [Wiki](https://github.com/siralusian/CobbleCompanion-CobbleDollars-Create/wiki/Deutsch#gruppen-zähler-und-abzieher-verknüpfen).
 - **CobbleMerchant mit Lagerticker/Auszahlungs-Kiste verknüpfen** (AdminOp):
   1. Strg+Rechtsklick auf den Merchant startet den Verknüpfungs-Modus.
   2. Strg+Rechtsklick auf einen Lagerticker (Preisquelle) oder eine Kiste (Auszahlungsziel)
