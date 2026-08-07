@@ -703,7 +703,12 @@ public class ContentObserverConfigScreen extends FixedScaleScreen {
             graphics.renderItem(new ItemStack(resolved), contentX - 2, rowY);
             textX = contentX + INV_SLOT_SIZE - 2;
         }
+        // Nutzer-Fund (4. Live-Test): der Empfänger fehlte in der Zeilen-Anzeige komplett - ohne
+        // das Formular zu öffnen, ließ sich nicht sehen, an wen eine Regel überhaupt auszahlt.
         String line = shortItemLabel(entry.itemId) + " " + CobbleDollarsScale.formatRaw(BigInteger.valueOf(entry.amountPerItem));
+        if (entry.targetPlayerName != null && !entry.targetPlayerName.isBlank()) {
+            line += " → " + entry.targetPlayerName;
+        }
         graphics.drawString(this.font, this.font.plainSubstrByWidth(line, textMaxW), textX, rowY + 4, 0xFFFFFF, false);
     }
 
